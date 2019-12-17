@@ -1,0 +1,36 @@
+class AddProducts < ActiveRecord::Migration[6.0]
+  def change
+  	Product.create ({
+  		:title => 'Havaiian',
+  	 	:description => 'This is Havaiian pizza',
+  	 	:price => 300,
+  	 	:size => 30,
+  	 	:is_spicy => false,
+  	 	:is_veg => false,
+  	 	:is_best_offer => false,
+  	 	:path_to_image => '/images/havaiian.jpg'
+  	 	})
+
+  	Product.create ({
+  		:title => 'Pepperoni',
+  		:description => 'Nice Pepperoni pizza',
+  		:price => 500, :size => 30,
+  		:is_spicy => false,
+  		:is_veg => false,
+  		:is_best_offer => true,
+  		:path_to_image => '/images/pepperoni.jpg'
+  		})
+
+  	Product.create ({
+  		:title => 'Vegetarian',
+  		:description => 'Amazing Vegetarian ian pizza',
+  		:price => 400,
+  		:size => 30,
+  		:is_spicy => false,
+  		:is_veg => false,
+  		:is_best_offer => false,
+  		:path_to_image => '/images/veg.jpg'
+  		})
+	
+  end
+end
