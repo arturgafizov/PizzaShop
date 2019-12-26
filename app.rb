@@ -15,13 +15,15 @@ get '/' do
 end
 
 get '/about' do
-		erb :about	
+	erb :about	
 end
 
 post '/cart' do
-	orders_input = params[:orders]
-	@items =  parse_orders_input orders_input
+	# получаем список параметров и разбираем (parse) их
+	@orders_input = params[:orders]
+	@items =  parse_orders_input @orders_input
 
+	# выводим список продуктов в корзине
 	@items.each do |item|
 		#id, cnt
 		item[0] = Product.find(item[0])
