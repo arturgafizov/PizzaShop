@@ -21,10 +21,16 @@ get '/about' do
 	erb :about	
 end
 
+post '/place_order' do
+	@order = Order.create params[:order]
+	erb :order_placed
+end
+
 post '/cart' do
+
 	# получаем список параметров и разбираем (parse) их
-	@orders_input = params[:orders]
-	@items =  parse_orders_input @orders_input
+	@orders_input = params[:orders_input]
+	@items = parse_orders_input @orders_input
 
 	# выводим список продуктов в корзине
 	@items.each do |item|
